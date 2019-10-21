@@ -64,7 +64,7 @@
       .avatar{
         width: 40px;
         height: 40px;
-        border: 1px solid @iconColor;
+        border: 1px solid @themeColor;
         margin-right: 15px;
       }
     }
