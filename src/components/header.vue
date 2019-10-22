@@ -4,24 +4,48 @@
       <h1>Let's share</h1>
       <p>分享你的博客</p>
       <div class="btns">
-        <el-button>立即登录</el-button>
-        <el-button>注册账号</el-button>
+        <router-link to="/login"><el-button>立即登录</el-button></router-link>
+        <router-link to="/register"><el-button>注册账号</el-button></router-link>
       </div>
     </template>
     <template v-if="isLogin">
       <h1>Let's share</h1>
       <i class="edit el-icon-edit"></i>
-      <img src="" alt="">
+      <div class="user">
+        <img class="avatar" :src="user.avatar" :alt="user.username" title="头像">
+        <ul>
+          <li><router-link to="/my">我的</router-link></li>
+          <li><a href="#" @click="onLogout">注销</a></li>
+        </ul>
+      </div>
     </template>
   </header>
 </template>
 
 <script>
+  import auth from '@/api/auth'
+  window.auth = auth
+  import { mapGetters, mapActions} from 'vuex'
+
   export default {
-    data(){
-      return{
-        isLogin:false
+
+    created(){
+      this.checkLogin()
+    },
+    methods:{
+      ...mapActions([
+        'checkLogin',
+        'logout'
+      ]),
+      onLogout(){
+        this.logout()
       }
+    },
+    computed:{
+      ...mapGetters([
+        'isLogin',
+        'user'
+      ])
     }
   }
 </script>
@@ -61,11 +85,40 @@
       .edit{
         font-size: 30px;
       }
-      .avatar{
-        width: 40px;
-        height: 40px;
-        border: 1px solid @themeColor;
-        margin-right: 15px;
+      .user{
+        position: relative;
+        height: 64px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding-left: 15px;
+        padding-right: 15px;
+        .avatar{
+          width: 40px;
+          height: 40px;
+          border: none;
+        }
+        >ul{
+          display: none;
+          position: absolute;
+          top: 100%;
+          list-style: none;
+          border: 1px solid @textHasBackColor;
+          background: @bgColor;
+
+          a{
+            font-size: 12px;
+            display: block;
+            padding: 5px 10px;
+            color: @textHasBackColor;
+            &:hover{
+              background: @bgLighterColor;
+            }
+          }
+        }
+        &:hover ul{
+          display: block;
+        }
       }
     }
   }
