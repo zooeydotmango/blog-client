@@ -1,16 +1,32 @@
-import request from '@/helpers/request.js'
-import auth from '@/api/auth.js'
-import blog from '@/api/blog.js'
+import blog from '@/api/blog'
 
-window.request = request;
-window.auth = auth;
-window.blog = blog;
 
 export default {
   name: 'index',
-  data () {
+  data() {
     return {
-      msg: '首页'
+      blog: [],
+      total: 0,
+      page: 1
+    }
+  },
+  created() {
+    this.page = parseInt(this.$route.query.page) || 1;
+    blog.getIndexBlogs({page: this.page}).then(res => {
+      this.blog = res.data;
+      this.total = res.total
+      this.page = res.page
+    })
+  },
+  methods: {
+    onPageChange(newPage) {
+      blog.getIndexBlogs({page: newPage}).then(res => {
+        console.log(res);
+        this.blog = res.data;
+        this.total = res.total
+        this.page = res.page
+        this.$router.push({path: '/', query: {page: newPage}})
+      })
     }
   }
 }
