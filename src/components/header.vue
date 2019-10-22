@@ -15,7 +15,7 @@
         <img class="avatar" :src="user.avatar" :alt="user.username" title="头像">
         <ul>
           <li><router-link to="/my">我的</router-link></li>
-          <li><a href="#" @click="onLogout">注销</a></li>
+          <li><router-link to="/"><a href="#" @click="onLogout">注销</a></router-link></li>
         </ul>
       </div>
     </template>
