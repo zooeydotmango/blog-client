@@ -1,7 +1,7 @@
 <template>
   <header :class="{login: isLogin, 'no-login':!isLogin}">
     <template v-if="!isLogin">
-      <h1>Let's share</h1>
+      <h1><router-link to="/">Let's share</router-link></h1>
       <p>分享你的博客</p>
       <div class="btns">
         <router-link to="/login"><el-button>立即登录</el-button></router-link>
@@ -9,8 +9,8 @@
       </div>
     </template>
     <template v-if="isLogin">
-      <h1>Let's share</h1>
-      <i class="edit el-icon-edit"></i>
+      <h1><router-link to="/">Let's share</router-link></h1>
+      <router-link to="/create"><i class="edit el-icon-plus"></i></router-link>
       <div class="user">
         <img class="avatar" :src="user.avatar" :alt="user.username" title="头像">
         <ul>
@@ -61,6 +61,7 @@
       font-size: 40px;
       margin: 60px 0 0 0;
       text-transform: uppercase;
+      >a{color: @textHasBackColor;}
     }
     p{margin: 15px 0 0 0;}
     button{margin: 20px 5px 0;}
@@ -70,7 +71,7 @@
       align-items: center;
       padding: 0 12%;
       h1{margin: 0;flex: 1;}
-      .edit{font-size: 30px;}
+      .edit{font-size: 30px;color: @textHasBackColor;}
       .user{
         position: relative;
         height: 64px;
@@ -91,7 +92,7 @@
           list-style: none;
           border: 1px solid @textHasBackColor;
           background: @bgColor;
-          a{
+          >li>a{
             font-size: 12px;
             display: block;
             padding: 5px 10px;
