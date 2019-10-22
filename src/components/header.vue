@@ -28,7 +28,6 @@
   import { mapGetters, mapActions} from 'vuex'
 
   export default {
-
     created(){
       this.checkLogin()
     },
@@ -58,33 +57,20 @@
     display: grid;
     justify-content: center;
     color: @textHasBackColor;
-
     h1{
       font-size: 40px;
       margin: 60px 0 0 0;
       text-transform: uppercase;
     }
-    p{
-      margin: 15px 0 0 0;
-    }
-    button{
-      margin: 20px 5px 0;
-    }
-    .btns{
-      margin-top: 15px;
-    }
-
+    p{margin: 15px 0 0 0;}
+    button{margin: 20px 5px 0;}
+    .btns{margin-top: 15px;}
     &.login{
       display: flex;
       align-items: center;
       padding: 0 12%;
-      h1{
-        margin: 0;
-        flex: 1;
-      }
-      .edit{
-        font-size: 30px;
-      }
+      h1{margin: 0;flex: 1;}
+      .edit{font-size: 30px;}
       .user{
         position: relative;
         height: 64px;
@@ -105,20 +91,15 @@
           list-style: none;
           border: 1px solid @textHasBackColor;
           background: @bgColor;
-
           a{
             font-size: 12px;
             display: block;
             padding: 5px 10px;
             color: @textHasBackColor;
-            &:hover{
-              background: @bgLighterColor;
-            }
+            &:hover{background: @bgLighterColor;}
           }
         }
-        &:hover ul{
-          display: block;
-        }
+        &:hover ul{display: block;}
       }
     }
   }
