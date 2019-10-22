@@ -1,14 +1,5 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import login from '@/pages/login/template.vue'
-import detail from '@/pages/detail/template.vue'
-import edit from '@/pages/edit/template.vue'
-import index from '@/pages/index/template.vue'
-import my from '@/pages/my/template.vue'
-import register from '@/pages/register/template.vue'
-import user from '@/pages/user/template.vue'
-import create from '@/pages/create/template.vue'
-
 import store from '../store'
 
 Vue.use(Router)
@@ -18,44 +9,44 @@ const router = new Router({
     {
       path: '/',
       name: 'index',
-      component: index
+      component: ()=>import('@/pages/index/template.vue')
     },
     {
       path: '/login',
       name: 'login',
-      component: login
+      component: ()=>import('@/pages/login/template.vue')
     },
     {
       path: '/register',
       name: 'register',
-      component: register
+      component: ()=>import('@/pages/register/template.vue')
     },
     {
       path: '/detail/:blogId',
       name: 'detail',
-      component: detail
+      component: ()=>import('@/pages/detail/template.vue')
     },
     {
       path: '/edit/:blogId',
       name: 'edit',
-      component: edit,
+      component: ()=>import('@/pages/edit/template.vue'),
       meta: {requireAuth: true}
     },
     {
       path: '/my',
       name: 'my',
-      component: my,
+      component: ()=>import('@/pages/my/template.vue'),
       meta: {requireAuth: true}
     },
     {
       path: '/user/:userId',
       name: 'user',
-      component: user
+      component: ()=>import('@/pages/user/template.vue')
     },
     {
       path: '/create',
       name: 'create',
-      component: create,
+      component: ()=>import('@/pages/create/template.vue'),
       meta: {requireAuth: true}
     }
   ]
