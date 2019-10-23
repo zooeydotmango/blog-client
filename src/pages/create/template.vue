@@ -1,5 +1,5 @@
 <template>
-  <div id="edit">
+  <div id="create">
     <h1>创建文章</h1>
     <h3>文章标题</h3>
     <el-input v-model="title"></el-input>
@@ -11,7 +11,7 @@
     <el-input type="textarea" v-model="content" :autosize="{minRows:4,maxRows:30}"></el-input>
     <p class="msg">限30个字</p>
     <p>
-      <label>是否展示到首页</label>
+      <label>展示到首页</label>
       <el-switch v-model="atIndex"></el-switch>
     </p>
     <el-button @click="onCreate">确定</el-button>
@@ -20,4 +20,4 @@
 
 <script src="./template.js"></script>
 
-<style src="../Edit/template.less" lang="less"></style>
+<style src="./template.less" lang="less"></style>

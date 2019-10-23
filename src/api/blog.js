@@ -22,7 +22,7 @@ export default {
   },
 
   getDetail({blogId}) {
-    return request(URL.GET_DETAIL.replace(':/blogId', blogId), 'GET')
+    return request(URL.GET_DETAIL.replace(':blogId', blogId), 'GET')
   },
 
   updateBlog({blogId}, {title, content, description, atIndex}) {
