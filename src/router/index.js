@@ -48,6 +48,9 @@ const router = new Router({
       name: 'create',
       component: ()=>import('@/pages/create/template.vue'),
       meta: {requireAuth: true}
+    },
+    {
+      path: '/blog-client', redirect: '/'
     }
   ]
 })
