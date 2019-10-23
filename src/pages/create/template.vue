@@ -12,7 +12,7 @@
     <p class="msg">限30个字</p>
     <p>
       <label>展示到首页</label>
-      <el-switch v-model="atIndex"></el-switch>
+      <el-switch v-model="atIndex" active-color="#6c6473"></el-switch>
     </p>
     <el-button @click="onCreate">确定</el-button>
   </div>
